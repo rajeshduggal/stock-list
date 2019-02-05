@@ -24,9 +24,9 @@ export class AppComponent implements OnInit {
     ];
   }
 
-  incrementStockValue(p) {
+  changeStockValue(p) {
     this.productToUpdate = this.products.find(this.findProducts, [p.id]);
-    this.productToUpdate.stock = this.productToUpdate.stock + 1;
+    this.productToUpdate.stock = this.productToUpdate.stock + p.updatedstockvalue;
   }
 
   findProducts(p) {
