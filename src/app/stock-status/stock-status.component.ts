@@ -7,13 +7,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class StockStatusComponent {
 
+  @Input() productId: number;
+  @Input() stock: number;
   @Output() stockValueChange = new EventEmitter();
   updatedstockvalue: number;
 
   constructor() { }
 
   stockValueChanged() {
-    this.stockValueChange.emit({updatedstockvalue: this.updatedstockvalue });
+    this.stockValueChange.emit({id: this.productId, updatedstockvalue: this.updatedstockvalue });
     this.updatedstockvalue = null;
   }
 

@@ -9,6 +9,8 @@ export class AppComponent implements OnInit {
   title = 'stock-list';
 
   products = [];
+  productToUpdate: any;
+
   ngOnInit() {
     this.products = this.getProducts();
   }
@@ -22,4 +24,12 @@ export class AppComponent implements OnInit {
     ];
   }
 
+  incrementStockValue(p) {
+    this.productToUpdate = this.products.find(this.findProducts, [p.id]);
+    this.productToUpdate.stock = this.productToUpdate.stock + 1;
+  }
+
+  findProducts(p) {
+    return p.id === this[0];
+  }
 }
